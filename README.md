@@ -24,5 +24,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### includes basic routing
 
-to run the project first hit run the command "npm run server" to start the json-server
+to run the project first hit run the command "npm run backend" to start the json-server
 and the "npm run serve"
