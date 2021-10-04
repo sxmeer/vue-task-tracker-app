@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "day": "4th Oct",
+      "text": "Search for rental flats",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "day": "14th Oct",
+      "text": "Tickets to be closed",
+      "reminder": false,
+      "id": 3
+    }
+  ]
+}

@@ -5,30 +5,23 @@
       :showAddTask="showAddTask"
       title="Task Tracker app"
     />
-    <AddTask v-if="showAddTask" @add-task="addTask" />
-    <Tasks
-      @delete-task="deleteTask"
-      @toggle-reminder="toggleReminder"
-      :tasks="tasks"
-    />
+    <router-view :showAddTask="showAddTask"></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Tasks from "./components/Tasks.vue";
-import AddTask from "./components/AddTask.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Tasks,
-    AddTask,
+    Footer,
   },
   data() {
     return {
-      tasks: [],
       showAddTask: false,
     };
   },
@@ -36,39 +29,6 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
-    addTask(task) {
-      this.tasks = [...this.tasks, task];
-    },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
-      );
-    },
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => task.id !== id);
-    },
-  },
-  created() {
-    this.tasks = [
-      {
-        day: "3rd Sept",
-        text: "Dental appointment",
-        reminder: true,
-        id: 1,
-      },
-      {
-        day: "4th Oct",
-        text: "Search for rental flats",
-        reminder: false,
-        id: 2,
-      },
-      {
-        day: "14th Oct",
-        text: "Tickets to be closed",
-        reminder: true,
-        id: 3,
-      },
-    ];
   },
 };
 </script>
@@ -83,6 +43,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 .container {
+  width: 90%;
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
